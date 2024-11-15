@@ -11,7 +11,7 @@ export class UseValueResolver implements ResolverInterface {
   async resolve<T>(provider: Provider<T>, token: Token): Promise<Resolved<T>> {
     return {
       provide: token,
-      resolution: provider.useValue,
+      resolution: provider.useValue!,
     };
   }
 }

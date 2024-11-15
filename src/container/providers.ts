@@ -36,6 +36,9 @@ export const providers: Provider[] = [
     }
   },
   {
+    provide: ConcreteBlackBool,
+  },
+  {
     provide: BlackBool,
     useClass: ConcreteBlackBool,
   }

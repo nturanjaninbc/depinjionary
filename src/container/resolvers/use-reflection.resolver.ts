@@ -17,10 +17,7 @@ export class UseReflectionResolver implements ResolverInterface {
 
   async resolve<T>(provider: Provider<T>, token: Token): Promise<Resolved<T>> {
     if ('function' !== typeof provider.provide) {
-      return {
-        provide: provider.provide,
-        resolution: undefined,
-      }
+      throw new Error('Dependency is not resolvable');
     }
 
     const isInjectable = Reflect.getMetadata('injectable', token);
