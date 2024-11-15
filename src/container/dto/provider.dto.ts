@@ -1,7 +1,9 @@
+import { Token } from "@container/types/token.type";
+
 export interface Provider<T = any> {
-  provide: T | string | symbol;
+  provide: Token<T>;
   useClass?: T;
-  useValue?: any;
-  injectTokens?: (T | string)[];
+  useValue?: T;
+  injectTokens?: Token[];
   useFactory?: (...args: any[]) => T;
 }

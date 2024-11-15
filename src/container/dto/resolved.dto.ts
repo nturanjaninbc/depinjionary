@@ -1,4 +1,6 @@
+import { Token } from "@container/types/token.type";
+
 export interface Resolved<T = any> {
-  provide: T | string | symbol;
+  provide: Token;
   resolution: T | undefined;
 }
