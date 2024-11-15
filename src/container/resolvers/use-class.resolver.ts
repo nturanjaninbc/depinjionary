@@ -10,7 +10,7 @@ export class UseClassResolver implements ResolverInterface {
   }
 
   async resolve<T>(provider: Provider<T>, token: Token): Promise<Resolved<T>> {
-    const resolution = await ContainerResolver.get().resolve<T>(provider.useClass)
+    const resolution = await ContainerResolver.get().resolve<T>(provider.useClass!)
 
     return {
       provide: token,

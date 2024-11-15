@@ -7,11 +7,22 @@ import { ContainerResolver } from "@container/container-resolver";
 export class UseReflectionResolver implements ResolverInterface {
   shouldResolve(provider: Provider): boolean {
     return (
-      'function' === typeof provider.provide && provider.injectTokens === undefined && provider.useFactory === undefined
+      'function' === typeof provider.provide &&
+      provider.injectTokens === undefined &&
+      provider.useFactory === undefined &&
+      provider.useClass === undefined &&
+      provider.useValue === undefined
     );
   }
 
   async resolve<T>(provider: Provider<T>, token: Token): Promise<Resolved<T>> {
+    if ('function' !== typeof provider.provide) {
+      return {
+        provide: provider.provide,
+        resolution: undefined,
+      }
+    }
+
     const isInjectable = Reflect.getMetadata('injectable', token);
 
     if (!isInjectable) {
@@ -20,7 +31,7 @@ export class UseReflectionResolver implements ResolverInterface {
     
     const paramTypes = Reflect.getMetadata('design:paramtypes', token) ?? [];
 
-    const childrenDep = paramTypes.map((paramType: InstanceType<any>) => {
+    const childrenDep = paramTypes.map((paramType: Token) => {
       return ContainerResolver.get().resolve(paramType);
     });
 

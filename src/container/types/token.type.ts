@@ -1,1 +1,3 @@
-export type Token<T = any> = string | Symbol | T;
+import { Constructable } from "./constructable.type";
+
+export type Token = string | Symbol | Constructable;
