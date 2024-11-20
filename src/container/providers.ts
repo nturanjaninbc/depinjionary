@@ -8,7 +8,7 @@ import { DocumentInterface } from '@application/storage/cookie/document.interfac
 import { CookieStorageService } from '@application/storage/cookie/cookie-storage.service';
 import { StorageInterface } from '@application/storage/storage.interface';
 import { CalculatorService } from '@application/calculator/calculator.service';
-import { CalculatorConfig } from '../config/calculator-config.dto';
+import calculatorConfig, { CalculatorConfig } from '../config/calculator-config';
 
 export const providers: Provider[] = [
   {
@@ -49,7 +49,7 @@ export const providers: Provider[] = [
   },
   {
     provide: 'CalculatorConfig',
-    useValue: { shouldLog: true, shouldStore: true },
+    useValue: calculatorConfig,
   },
   {
     provide: CalculatorService, 

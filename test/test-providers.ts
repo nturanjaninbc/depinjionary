@@ -5,7 +5,7 @@ import { LocalStorageInterface } from "@application/storage/local-storage/local-
 import { LocalStorageService } from "@application/storage/local-storage/local-storage.service";
 import { StorageInterface } from "@application/storage/storage.interface";
 import { Provider } from "@container/dto/provider.dto";
-import { CalculatorConfig } from "../src/config/calculator-config.dto";
+import { CalculatorConfig } from "../src/config/calculator-config";
 
 export const mockProviders: Provider[] = [
   {

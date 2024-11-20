@@ -1,6 +1,6 @@
 import { LoggerInterface } from "@application/logger/logger.interface";
 import { StorageInterface } from "@application/storage/storage.interface";
-import { CalculatorConfig } from "../../config/calculator-config.dto";
+import { CalculatorConfig } from "../../config/calculator-config";
 import { Injectable } from "@container/decorators/injectable.decorator";
 
 @Injectable()
