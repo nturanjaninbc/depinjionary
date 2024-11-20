@@ -8,4 +8,6 @@ import { ContainerResolver } from '@container/container-resolver';
   const container = ContainerResolver.init(providers);
 
   const app = await container.resolve<App>(App);
+
+  app.run();
 })(providers);
