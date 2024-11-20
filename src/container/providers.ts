@@ -49,7 +49,7 @@ export const providers: Provider[] = [
   },
   {
     provide: 'CalculatorConfig',
-    useValue: { shouldLog: true, shouldStore: true }
+    useValue: { shouldLog: true, shouldStore: true },
   },
   {
     provide: CalculatorService, 

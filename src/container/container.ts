@@ -5,9 +5,14 @@ import { ResolverFactory } from './resolvers/resolver.factory';
 import { Type } from './enums/type.enum';
 
 export class Container {
-  private dependencies: Resolved[] = [];
+  private dependencies: Map<Token, Resolved> = new Map<Token, Resolved>();
+  private providers: Map<Token, Provider> = new Map<Token, Provider>();
 
-  constructor(private readonly providers: Provider[]) {}
+  constructor(providers: Provider[]) {
+    providers.forEach((provider) => {
+      this.providers.set(provider.provide, provider)
+    })
+  }
 
   async resolve<T>(token: Token): Promise<T> {
     const resolveType: Type = this.getResolutionType(token);
@@ -22,7 +27,7 @@ export class Container {
   }
 
   private async resolveAsSingleton<T>(token: Token): Promise<T> {
-    let dependency: Resolved | undefined = this.dependencies.find(res => res.provide === token);
+    let dependency: Resolved | undefined = this.dependencies.get(token);
 
     if (dependency) {
       return dependency.resolution as T;
@@ -30,7 +35,7 @@ export class Container {
 
     dependency = await this.getResolved<T>(token);
 
-    this.dependencies.push(dependency);
+    this.dependencies.set(token, dependency);
 
     return dependency.resolution;
   }
@@ -43,7 +48,7 @@ export class Container {
 
   private async getResolved<T>(token: Token): Promise<Resolved<T>>
   {
-    const provider = this.providers.find((provider: Provider) => provider.provide === token);
+    const provider = this.providers.get(token);
 
     if (!provider) {
       throw new Error('Dependency is not registered');
