@@ -35,7 +35,7 @@ export class Container {
     return dependency.resolution;
   }
 
-  async resolveAsTransient<T>(token: Token): Promise<T> {
+  private async resolveAsTransient<T>(token: Token): Promise<T> {
     const dependency = await this.getResolved<T>(token);
 
     return dependency.resolution;
@@ -43,8 +43,6 @@ export class Container {
 
   private async getResolved<T>(token: Token): Promise<Resolved<T>>
   {
-    const a = this.providers[6].provide;
-
     const provider = this.providers.find((provider: Provider) => provider.provide === token);
 
     if (!provider) {

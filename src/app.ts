@@ -4,7 +4,5 @@ import { Injectable } from '@container/decorators/injectable.decorator';
 export class App {
   constructor() {}
 
-  run() {
-    console.log('app started...')
-  }
+  run() {}
 }

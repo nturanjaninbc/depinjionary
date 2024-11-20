@@ -11,11 +11,11 @@ export class UseFactoryResolver implements ResolverInterface {
 
   async resolve<T>(provider: Provider<T>, token: Token): Promise<Resolved<T>> {
     const injectedTokens = provider.injectTokens ?? [];
-    const tokens = injectedTokens.map(token => ContainerResolver.get().resolve(token));
+    const resolutions = injectedTokens.map(token => ContainerResolver.get().resolve(token));
 
     return {
       provide: token,
-      resolution: await provider.useFactory!(...await Promise.all(tokens)),
+      resolution: await provider.useFactory!(...await Promise.all(resolutions)),
     };
   }
 }
