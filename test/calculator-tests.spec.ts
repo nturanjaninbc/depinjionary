@@ -3,7 +3,7 @@ import { ContainerResolver } from "@container/container-resolver";
 import { CalculatorService } from "@application/calculator/calculator.service";
 
 describe('Calculator service tests', () => {
-  test('2 + 2 should be 4', async () => {
+  test('3 + 4 should be 7', async () => {
     const container = ContainerResolver.init(mockProviders);
 
     let calculatorService = await container.resolve<CalculatorService>(CalculatorService);
