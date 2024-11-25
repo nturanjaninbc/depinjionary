@@ -4,7 +4,6 @@
   "description": "Dependency Injection Container for TS projects",
   "main": "index.ts",
   "scripts": {
-    "install-common": "cd ../cdp-common && npm i",
     "build": "webpack --mode production",
     "test": "jest"
   },
