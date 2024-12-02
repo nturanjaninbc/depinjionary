@@ -5,7 +5,7 @@ require('dotenv').config({
 });
 
 module.exports = {
-  entry: './index.ts',
+  entry: './src/index.ts',
   module: {
     rules: [
       {
@@ -15,10 +15,10 @@ module.exports = {
       },
     ],
   },
+  mode: 'production',
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
-      '@application': path.resolve(__dirname, 'src/application'),
       '@container': path.resolve(__dirname, 'src/container'),
     },
   },

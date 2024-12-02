@@ -1,5 +1,5 @@
-import { Resolved } from '@container/dto/resolved.dto';
-import { Provider } from '@container/dto/provider.dto';
+import { Resolved } from './dto/resolved.dto';
+import { Provider } from './dto/provider.dto';
 import { Token } from './types/token.type';
 import { ResolverFactory } from './resolvers/resolver.factory';
 import { Type } from './enums/type.enum';

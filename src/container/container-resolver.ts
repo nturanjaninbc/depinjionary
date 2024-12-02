@@ -12,7 +12,7 @@ export class ContainerResolver {
 
   static get(): Container {
     if (!this.container) {
-      throw new Error('Container not initialized');
+      throw Error('Container not initialized');
     }
 
     return this.container;

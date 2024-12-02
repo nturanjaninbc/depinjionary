@@ -15,14 +15,10 @@
     "moduleResolution": "node",
     "strict": true,
     "emitDecoratorMetadata": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "declarationDir": "./dist/types",
     "experimentalDecorators": true,
-    "lib": [
-      "ES2021.String",
-      "dom"
-    ],
-    "paths": {
-      "@application/*": ["./src/application/*"],
-      "@container/*": ["./src/container/*"],
-    }
+    "lib": ["ES2021", "DOM"]
   },
 }

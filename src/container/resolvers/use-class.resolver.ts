@@ -1,8 +1,8 @@
-import { Provider } from "@container/dto/provider.dto";
+import { Provider } from "../dto/provider.dto";
 import { ResolverInterface } from "./resolver.interface";
-import { Resolved } from "@container/dto/resolved.dto";
-import { ContainerResolver } from "@container/container-resolver";
-import { Token } from "@container/types/token.type";
+import { Resolved } from "../dto/resolved.dto";
+import { ContainerResolver } from "../container-resolver";
+import { Token } from "../types/token.type";
 
 export class UseClassResolver implements ResolverInterface {
   shouldResolve(provider: Provider): boolean {

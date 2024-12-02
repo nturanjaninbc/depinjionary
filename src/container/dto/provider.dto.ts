@@ -1,5 +1,5 @@
-import { Constructable } from "@container/types/constructable.type";
-import { Token } from "@container/types/token.type";
+import { Constructable } from "../types/constructable.type";
+import { Token } from "../types/token.type";
 
 export interface Provider<T = any> {
   provide: Token;

@@ -1,4 +1,4 @@
-import { Provider } from "@container/dto/provider.dto";
+import { Provider } from "../dto/provider.dto";
 import { ResolverInterface } from "./resolver.interface";
 import { UseClassResolver } from "./use-class.resolver";
 import { UseFactoryResolver } from "./use-factory.resolver";

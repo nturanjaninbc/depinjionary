@@ -1,8 +1,9 @@
-import { Provider } from "@container/dto/provider.dto";
+import { Provider } from "../dto/provider.dto";
 import { ResolverInterface } from "./resolver.interface";
-import { Resolved } from "@container/dto/resolved.dto";
-import { Token } from "@container/types/token.type";
-import { ContainerResolver } from "@container/container-resolver";
+import { Resolved } from "../dto/resolved.dto";
+import { Token } from "../types/token.type";
+import { ContainerResolver } from "../container-resolver";
+import { Constructable } from "../types/constructable.type";
 
 export class UseReflectionResolver implements ResolverInterface {
   shouldResolve(provider: Provider): boolean {
@@ -36,7 +37,7 @@ export class UseReflectionResolver implements ResolverInterface {
 
     return {
       provide: provider.provide,
-      resolution: new provider.provide(...dependencies),
+      resolution: new (provider.provide as Constructable)(...dependencies),
     };
   }
 }

@@ -1,4 +1,4 @@
-import { Type } from "@container/enums/type.enum";
+import { Type } from "../enums/type.enum";
 
 export function Injectable(options = { type: Type.SINGLETON }) {
   return function (target: any) {
